@@ -1,20 +1,15 @@
 import time
+import json
 import random
 import copy
 
 
 
 def get_dict():
-    words_dict = {'a':[],'b':[],'c':[],'d':[],'e':[],'f':[],'g':[],'h':[],'i':[],'j':[],'k':[],'l':[],'m':[],'n':[],'o':[],'p':[],'q':[],'r':[],'s':[],'t':[],'u':[],'v':[],'w':[],'x':[],'y':[],'z':[]}
+    words_dict = {}
 
-    with open("words.txt") as words_file:
-        for line in words_file:
-            word = line.lower().replace("\n","")
-            if len(word):
-                l = word[0]
-                if words_dict.get(l,False) is not False:
-                    words_dict[l].append(word)
-
+    with open("words.json") as words_file:
+        words_dict = json.load(words_file)
 
     return words_dict
 
