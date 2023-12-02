@@ -91,9 +91,11 @@ def main():
         resultText.delete('1.0', END)
 
     root = Tk()
-    root.title("Shuffled dictionary encoder")
+    root.title("Shuffled Dictionary Cypher")
     root.geometry("500x335")
     root.resizable(False,False)
+    root.iconbitmap("icon.ico")
+
 
     shuffle_key = StringVar()
     shuffle_key.trace_add("write",print_key)
@@ -142,7 +144,7 @@ def main():
     bottomButtonsFrame = Frame(root)
     bottomButtonsFrame.pack(anchor="w",pady=(10,20))
 
-    copyBtn = Button(bottomButtonsFrame,text="Copy",command=lambda: pyperclip.copy(resultText["text"]))
+    copyBtn = Button(bottomButtonsFrame,text="Copy",command=lambda: pyperclip.copy(resultText.get('1.0',END)))
     clearBtn = Button(bottomButtonsFrame,text="Clear",command=clear)
 
     copyBtn.pack(padx=(20,0),side="left")
