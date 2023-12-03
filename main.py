@@ -32,7 +32,7 @@ def main():
                             i = words_dict[letter].index(letter)
                             output.append(shuffled_dict[letter][i])
         result = " ".join(output)
-        resultLabel.config(text="Result (Encoded)")
+        resultLabel.config(text="Result: (Encoded)")
         resultText.delete('1.0', END)
         resultText.insert(INSERT,result)
 
@@ -50,7 +50,7 @@ def main():
                 except ValueError:
                     continue
         result = " ".join(output)
-        resultLabel.config(text="Result (Decoded)")
+        resultLabel.config(text="Result: (Decoded)")
         resultText.delete('1.0', END)
         resultText.insert(INSERT,result)
 
@@ -87,8 +87,9 @@ def main():
         decodeBtn['state'] = "normal"
 
     def clear():
-        resultLabel.config(text="Result")
+        resultLabel.config(text="Result:")
         resultText.delete('1.0', END)
+        textInput.delete(0, END)
 
     root = Tk()
     root.title("Shuffled Dictionary Cypher")
